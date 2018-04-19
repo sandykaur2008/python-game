@@ -6,19 +6,6 @@ class Scene(object):
     def enter(self):
         pass
 
-class Engine(object):
-    def __init__(self, scene_map):
-        self.scene_map = scene_map
-    def play(self):
-        current_scene = self.scene_map.next_scene()
-        last_scene = TheEnd()
-        
-        while current_scene != last_scene:
-            next_scene_name = current_scene.enter()
-            current_scene = Map(next_scene_name).next_scene()
-
-        return current_scene.enter()
-
 class Death(Scene):
     lines = ['Wow, you suck at this! Bye!', 
         'Dead already? Damn lol',
@@ -154,27 +141,3 @@ class TheEnd(Scene):
     def enter(self):
         print """Thanks for playing!"""
         exit(1)
-
-class Map(object):
-    scenes = {'death': Death(), 
-    'observation_room': ObservationRoom(),
-    'main_corridor': MainCorridor(),
-    'control_room': ControlRoom(),
-    'bomb_room': BombRoom(),
-    'escape_pod': EscapePod(),
-    'the_end': TheEnd()}
-
-    def __init__(self, start_scene):
-        self.start_scene = start_scene
-    
-    def next_scene(self):
-        next_up = Map.scenes.get(self.start_scene)
-        return next_up
-    
-    #def opening_scene(self):
-     #   return self.next_scene(self.start_scene)
-        
-
-a_map = Map('observation_room')
-a_game = Engine(a_map)
-a_game.play()
