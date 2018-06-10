@@ -6,10 +6,10 @@ This is a game I made based on Exercise 45 (and Exercise 43) in Zed A. Shaw's "L
 - Follow these instructions: https://help.github.com/articles/cloning-a-repository/
 
 # Prerequisites
-To run this program, you will need Python3. 
+To run this program, you will need Python 3. 
 
 # Built With
-- Python3
+- Python 3
 
 # Authors
 Satinder Kaur 
